@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">My Application</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="titel">العنوان:</string>
+    <string name="save">حفظ</string>
+    <string name="title">* التصنيف:</string>
+    <string name="title1">* مقدم الخدمة:</string>
+    <string name="title2">رقم مقدم الخدمة:</string>
+    <string name="title3">الموقع الالكتروني لمقدم الخدمة:</string>
+    <string name="title4">التنبيه قبل تاريخ الشراء</string>
+    <string name="title5">التنبيه قبل:</string>
+    <string name="title6">حفظ</string>
+    <string name="title7">الغاء</string>
+    <string name="titile1">رقم الفاتورة:</string>
+    <string name="titile2">* اسم الفاتورة:</string>
+    <string name="titile3">* تاريخ الشراء:</string>
+    <string name="titile4">* النوع:</string>
+    <string name="titile5">ضمان</string>
+    <string name="titile6">فاتورة</string>
+    <string name="titile7">* تاريخ الانتهاء:</string>
+    <string name="titile8">* مدة الضمان:</string>
+
+    <string name="before_week">قبل أسبوع</string>
+    <string name="before_month">قبل شهر</string>
+</resources>

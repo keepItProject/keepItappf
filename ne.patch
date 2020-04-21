@@ -1,0 +1,269 @@
+Index: app/src/main/java/com/example/myapplication/activity_game.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/myapplication/activity_game.java	(revision 1ef98074fd57a66e3f0c1273ec58e424c53bcb41)
++++ app/src/main/java/com/example/myapplication/activity_game.java	(date 1581019797330)
+@@ -12,7 +12,7 @@
+ 
+ import com.google.android.material.tabs.TabLayout;
+ 
+-public class activity_game extends AppCompatActivity implements tap1.OnFragmentInteractionListener,tap2.OnFragmentInteractionListener{
++public class activity_game extends AppCompatActivity {
+ 
+     Toolbar toolbar;
+ TabLayout tapLayout;
+@@ -24,34 +24,7 @@
+         tapLayout.addTab(tapLayout.newTab().setText(""));
+         tapLayout.addTab(tapLayout.newTab().setText(""));
+ 
+-        tapLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+-        final ViewPager viewPager=(ViewPager)findViewById(R.id.pager);
+-        final PagerAdapter adapter= new pagerAdapter(getSupportFragmentManager(),tapLayout.getTabCount()) {
+-
+-        };
+-        viewPager.setAdapter(adapter);
+-        viewPager.setOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tapLayout));
+-        tapLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+-
+-                                               @Override
+-                                               public void onTabSelected(TabLayout.Tab tab) {
+-
+-                                               }
+ 
+-                                               @Override
+-                                               public void onTabUnselected(TabLayout.Tab tab) {
+-
+-                                               }
+-
+-                                               @Override
+-                                               public void onTabReselected(TabLayout.Tab tab) {
+-
+-                                               }
+-
+-                                               public void onTapSelected(TabLayout.Tab tap) {
+-                                                   viewPager.setCurrentItem(tap.getPosition());
+-                                               }
+-                                           });
+ //For tool bar
+ 
+         toolbar=(Toolbar)findViewById(R.id.toolbar);
+@@ -60,8 +33,4 @@
+         //-----------------------------------------------------------------
+     }
+ 
+-    @Override
+-    public void onFragmentInteraction(Uri uri) {
+-
+-    }
+ }
+Index: app/src/main/res/layout/activity_homepage.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_homepage.xml	(revision 1ef98074fd57a66e3f0c1273ec58e424c53bcb41)
++++ app/src/main/res/layout/activity_homepage.xml	(date 1581025989810)
+@@ -43,11 +43,13 @@
+                     android:layout_gravity="center"
+                     android:gravity="center"
+                     >
++
+                     <ImageView
++                        android:id="@+id/homi"
+                         android:layout_width="wrap_content"
+                         android:layout_height="20dp"
+                         android:padding="0dp"
+-                        android:src="@drawable/homepage"/>
++                        android:src="@drawable/homepage" />
+ 
+                     <TextView
+                         android:layout_width="wrap_content"
+@@ -67,11 +69,13 @@
+                     android:layout_gravity="center"
+                     android:gravity="center"
+                     >
++
+                     <ImageView
++                        android:id="@+id/sae"
+                         android:layout_width="wrap_content"
+                         android:layout_height="20dp"
+                         android:padding="0dp"
+-                        android:src="@drawable/loupe"/>
++                        android:src="@drawable/loupe" />
+ 
+                     <TextView
+                         android:layout_width="wrap_content"
+@@ -103,11 +107,13 @@
+                     android:layout_gravity="center"
+                     android:gravity="center"
+                     >
++
+                     <ImageView
++                        android:id="@+id/cale"
+                         android:layout_width="wrap_content"
+                         android:layout_height="20dp"
+                         android:padding="0dp"
+-                        android:src="@drawable/calendar"/>
++                        android:src="@drawable/calendar" />
+ 
+                     <TextView
+                         android:layout_width="wrap_content"
+@@ -127,11 +133,13 @@
+                     android:layout_gravity="center"
+                     android:gravity="center"
+                     >
++
+                     <ImageView
++                        android:id="@+id/userr"
+                         android:layout_width="wrap_content"
+                         android:layout_height="20dp"
+                         android:padding="0dp"
+-                        android:src="@drawable/user"/>
++                        android:src="@drawable/user" />
+ 
+                     <TextView
+                         android:layout_width="wrap_content"
+@@ -197,7 +205,7 @@
+                     app:layout_constraintHorizontal_bias="0.502"
+                     app:layout_constraintStart_toStartOf="parent"
+                     app:layout_constraintTop_toTopOf="parent"
+-                    app:layout_constraintVertical_bias="0.243"
++                    app:layout_constraintVertical_bias="0.241"
+                     app:srcCompat="@drawable/doc" />
+ 
+                 <TextView
+@@ -232,8 +240,8 @@
+ 
+     </androidx.coordinatorlayout.widget.CoordinatorLayout>
+     <androidx.appcompat.widget.Toolbar
+-        android:layout_width="match_parent"
+-        android:layout_height="wrap_content"
++        android:layout_width="523dp"
++        android:layout_height="74dp"
+         app:title="الرئيسية"
+         android:background="#3C4277"
+         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+@@ -241,6 +249,7 @@
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toTopOf="parent"
+         app:layout_constraintVertical_bias="0.0"
++        app:logo="@drawable/arrow"
+         app:titleMarginStart="150dp" />
+ 
+ 
+Index: app/src/main/java/com/example/myapplication/activity_homepage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/myapplication/activity_homepage.java	(revision 1ef98074fd57a66e3f0c1273ec58e424c53bcb41)
++++ app/src/main/java/com/example/myapplication/activity_homepage.java	(date 1581026140448)
+@@ -8,15 +8,18 @@
+ import android.view.Menu;
+ import android.view.View;
+ import android.widget.ImageButton;
++import android.widget.ImageView;
+ 
+ import com.google.android.material.bottomappbar.BottomAppBar;
+ import com.google.android.material.floatingactionbutton.FloatingActionButton;
++import com.google.android.material.snackbar.Snackbar;
+ 
+-public class activity_homepage extends AppCompatActivity {
++public class activity_homepage extends AppCompatActivity{
+     FloatingActionButton floatingActionButton;
+     BottomAppBar bottomAppBar;
+     Toolbar toolbar;
+     ImageButton bt;
++    ImageView cal ,ser ,ho,pro;
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+@@ -28,9 +31,15 @@
+ 
+ 
+         //--------------------------------------------------
+-
++        floatingActionButton=findViewById(R.id.orderPlus);
+         bottomAppBar = findViewById(R.id.bar);
+         bt= (ImageButton) findViewById(R.id.category);
++        //botoom bar--------------------------------------------
++        cal=(ImageView) findViewById(R.id.cale);
++        ser=(ImageView) findViewById(R.id.sae);
++        ho=(ImageView) findViewById(R.id.homi);
++        pro=(ImageView) findViewById(R.id.userr);
++//----------------------------------------------------------------
+         bt.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+@@ -38,14 +47,51 @@
+                 startActivity(intent);
+             }
+         });
+-/* baaarr
+-        bottomAppBar.setOnClickListener(new View.OnClickListener() {
++        floatingActionButton.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View v) {
++                Intent i =new Intent(activity_homepage.this, SearchActivity.class);
++                startActivity(i);
++            }
++        });//add option
++//----------------------------------------------------
++        //ho.bringToFront();
++        ho.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+-                Intent intent =new Intent(activity_homepage.this, activity_category.class);
++                Intent intent =new Intent(activity_homepage.this,activity_homepage.class);
++                startActivity(intent);
++            }
++        });
++        //
++        //ser.bringToFront();
++        ser.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View v) {
++                Intent intent =new Intent(activity_homepage.this, SearchActivity.class);
++                startActivity(intent);
++            }
++        });
++        //
++       // pro.bringToFront();
++        pro.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View v) {
++                Intent intent =new Intent(activity_homepage.this, profilActivity.class);
+                 startActivity(intent);
+             }
+-        });*/
++        });
++        //
++        //cal.bringToFront();
++        cal.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View v) {
++                Intent intent =new Intent(activity_homepage.this, CalenderActivity.class);
++                startActivity(intent);
++            }
++        });
++        //
++
+     }
+ 
+     // For menu
+Index: app/src/main/res/layout/activity_newuser.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_newuser.xml	(revision 1ef98074fd57a66e3f0c1273ec58e424c53bcb41)
++++ app/src/main/res/layout/activity_newuser.xml	(date 1581011033714)
+@@ -204,6 +204,4 @@
+         app:navigationIcon="@drawable/back" />
+ 
+ 
+-
+-
+ </androidx.constraintlayout.widget.ConstraintLayout>

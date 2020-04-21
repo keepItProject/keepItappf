@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="alarm_choices">
+        <item>@string/before_week</item>
+        <item>@string/before_month</item>
+    </string-array>
+</resources>
